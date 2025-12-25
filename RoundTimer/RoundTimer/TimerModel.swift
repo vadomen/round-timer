@@ -166,6 +166,7 @@ class RoundTimerModel: ObservableObject {
     
     enum TimerPhase {
         case idle // Not started
+        case prepare // 10s warmup
         case work // Boxing
         case rest // Resting
     }
@@ -181,7 +182,7 @@ class RoundTimerModel: ObservableObject {
     func start() {
         if phase == .idle {
             currentRound = 1
-            startRound()
+            startPrepare()
         } else if isPaused {
             resume()
         }
@@ -208,6 +209,16 @@ class RoundTimerModel: ObservableObject {
         currentRound = 1
         timeRemaining = workDuration
         progress = 1.0
+    }
+    
+    private func startPrepare() {
+        phase = .prepare
+        isPaused = false
+        timeRemaining = 10
+        initialTimeForCurrentPhase = 10
+        hasPlayed10SecWarning = false // Reset for cleanliness, though warning logic might differ
+        // No sound on prepare start as per user request
+        startTimerTick()
     }
     
     private func startRound() {
@@ -246,7 +257,12 @@ class RoundTimerModel: ObservableObject {
             timeRemaining -= 1
             progress = timeRemaining / initialTimeForCurrentPhase
             
-            if timeRemaining == 10 {
+            if timeRemaining == 3 && phase == .prepare {
+                 // 3-2-1 countdown for prepare?
+                 soundManager.playWarning()
+            }
+            
+            if timeRemaining == 10 && phase != .prepare {
                 soundManager.playWarning()
             }
         } else {
@@ -255,7 +271,9 @@ class RoundTimerModel: ObservableObject {
     }
     
     private func nextPhase() {
-        if phase == .work {
+        if phase == .prepare {
+            startRound()
+        } else if phase == .work {
             if currentRound < totalRounds {
                 startRest()
             } else {

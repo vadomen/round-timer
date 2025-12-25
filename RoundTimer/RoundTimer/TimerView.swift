@@ -10,6 +10,8 @@ struct TimerView: View {
             return timerModel.timeRemaining <= 10 ? Color.orange : Color.green
         case .rest:
             return timerModel.timeRemaining <= 10 ? Color.yellow : Color.red
+        case .prepare:
+            return Color.blue
         case .idle:
             return Color.gray
         }
@@ -19,6 +21,7 @@ struct TimerView: View {
         switch timerModel.phase {
         case .work: return "ROUND \(timerModel.currentRound)"
         case .rest: return "REST"
+        case .prepare: return "GET READY"
         case .idle: return "READY"
         }
     }
@@ -30,62 +33,67 @@ struct TimerView: View {
     }
     
     var body: some View {
-        ZStack {
-            backgroundColor
-                .edgesIgnoringSafeArea(.all)
-                .animation(.easeInOut, value: backgroundColor)
-            
-            VStack(spacing: 40) {
-                // Header
-                Text(statusText)
-                    .font(.system(size: 48, weight: .heavy, design: .rounded))
-                    .foregroundColor(.white)
-                    .padding(.top, 50)
+        GeometryReader { geometry in
+            ZStack {
+                backgroundColor
+                    .edgesIgnoringSafeArea(.all)
+                    .animation(.easeInOut, value: backgroundColor)
                 
-                Spacer()
-                
-                // Big Timer
-                Text(formatTime(timerModel.timeRemaining))
-                    .font(.system(size: 90, weight: .bold, design: .monospaced))
-                    .foregroundColor(.white)
-                    .minimumScaleFactor(0.5)
-                
-                // Progress Bar
-                ProgressView(value: timerModel.progress)
-                    .progressViewStyle(LinearProgressViewStyle(tint: .white))
-                    .scaleEffect(x: 1, y: 4, anchor: .center)
-                    .padding()
-                
-                Spacer()
-                
-                // Controls
-                HStack(spacing: 50) {
-                    Button(action: {
-                        timerModel.stop()
-                        withAnimation {
-                            isShowingTimer = false
-                        }
-                    }) {
-                        Image(systemName: "xmark.circle.fill")
-                            .resizable()
-                            .frame(width: 80, height: 80)
-                            .foregroundColor(.white)
-                    }
+                VStack(spacing: 40) {
+                    // Header
+                    Text(statusText)
+                        .font(.system(size: 48, weight: .heavy, design: .rounded))
+                        .foregroundColor(.white)
+                        .padding(.top, 50)
                     
-                    Button(action: {
-                        if timerModel.isPaused {
-                            timerModel.resume()
-                        } else {
-                            timerModel.pause()
+                    Spacer()
+                    
+                    // Big Timer
+                    // Font size set to 50% of screen height (or width constrained)
+                    Text(formatTime(timerModel.timeRemaining))
+                        .font(.system(size: geometry.size.height * 0.5, weight: .bold, design: .monospaced))
+                        .foregroundColor(.white)
+                        .minimumScaleFactor(0.1)
+                        .lineLimit(1)
+                        .padding(.horizontal)
+                    
+                    // Progress Bar
+                    ProgressView(value: timerModel.progress)
+                        .progressViewStyle(LinearProgressViewStyle(tint: .white))
+                        .scaleEffect(x: 1, y: 4, anchor: .center)
+                        .padding()
+                    
+                    Spacer()
+                    
+                    // Controls
+                    HStack(spacing: 50) {
+                        Button(action: {
+                            timerModel.stop()
+                            withAnimation {
+                                isShowingTimer = false
+                            }
+                        }) {
+                            Image(systemName: "xmark.circle.fill")
+                                .resizable()
+                                .frame(width: 80, height: 80)
+                                .foregroundColor(.white)
                         }
-                    }) {
-                        Image(systemName: timerModel.isPaused ? "play.circle.fill" : "pause.circle.fill")
-                            .resizable()
-                            .frame(width: 80, height: 80)
-                            .foregroundColor(.white)
+                        
+                        Button(action: {
+                            if timerModel.isPaused {
+                                timerModel.resume()
+                            } else {
+                                timerModel.pause()
+                            }
+                        }) {
+                            Image(systemName: timerModel.isPaused ? "play.circle.fill" : "pause.circle.fill")
+                                .resizable()
+                                .frame(width: 80, height: 80)
+                                .foregroundColor(.white)
+                        }
                     }
+                    .padding(.bottom, 50)
                 }
-                .padding(.bottom, 50)
             }
         }
     }
