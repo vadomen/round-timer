@@ -21,6 +21,8 @@ class RoundTimerModel: ObservableObject {
     @Published var phase: TimerPhase = .idle
     @Published var isPaused: Bool = false
     
+    @Published var heartRateManager = HeartRateManager()
+    
     private var timer: AnyCancellable?
     private let soundManager = SoundManager.shared
     private var initialTimeForCurrentPhase: TimeInterval = 0

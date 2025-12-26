@@ -44,14 +44,19 @@ struct TimerView: View {
                 if isLandscape {
                     // LANDSCAPE LAYOUT
                     ZStack {
-                        // Maximize Timer Text
-                        Text(formatTime(timerModel.timeRemaining))
-                            .font(.system(size: geometry.size.height * 0.85, weight: .bold, design: .monospaced))
-                            .foregroundColor(.white)
-                            .minimumScaleFactor(0.1)
-                            .lineLimit(1)
-                            .padding()
-                            .accessibilityIdentifier("TimerText")
+                        // Main Content: Split Timer and Heart Rate
+                        HStack(spacing: 0) {
+                            // Left Side: Timer
+                            VStack {
+                                Text(formatTime(timerModel.timeRemaining))
+                                    .font(.system(size: geometry.size.height * (timerModel.heartRateManager.heartRate > 0 ? 0.7 : 0.85), weight: .bold, design: .monospaced))
+                                    .foregroundColor(.white)
+                                    .minimumScaleFactor(0.1)
+                                    .lineLimit(1)
+                                    .padding(.horizontal)
+                                    .accessibilityIdentifier("TimerText")
+                            }
+                            .frame(maxWidth: timerModel.heartRateManager.heartRate > 0 ? geometry.size.width * 0.55 : .infinity)
                             .onTapGesture {
                                 if timerModel.isPaused {
                                     timerModel.resume()
@@ -59,8 +64,33 @@ struct TimerView: View {
                                     timerModel.pause()
                                 }
                             }
+                            
+                            // Right Side: Heart Rate (only if sensor connected)
+                            if timerModel.heartRateManager.heartRate > 0 {
+                                VStack(spacing: 0) {
+                                    Image(systemName: "heart.fill")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(height: geometry.size.height * 0.25)
+                                        .foregroundColor(.red)
+                                        .symbolEffect(.bounce, value: timerModel.heartRateManager.heartRate)
+                                        .padding(.bottom, 10)
+                                    
+                                    Text("\(timerModel.heartRateManager.heartRate)")
+                                        .font(.system(size: geometry.size.height * 0.45, weight: .bold, design: .rounded))
+                                        .foregroundColor(.white)
+                                        .lineLimit(1)
+                                        .minimumScaleFactor(0.1)
+                                    
+                                    Text("BPM")
+                                        .font(.system(size: geometry.size.height * 0.1, weight: .medium, design: .rounded))
+                                        .foregroundColor(.white.opacity(0.8))
+                                }
+                                .frame(width: geometry.size.width * 0.45)
+                            }
+                        }
                         
-                        // Controls Overlay
+                        // Controls Overlay (Top Bar and Status)
                         VStack {
                             HStack {
                                 // Stop Button (Top Left)
@@ -80,7 +110,7 @@ struct TimerView: View {
                                 
                                 Spacer()
                                 
-                                // Round Number (Top Center)
+                                // Status Bar (Integrated Round Number)
                                 Text("ROUND \(timerModel.currentRound)")
                                     .font(.system(size: 30, weight: .bold, design: .rounded))
                                     .foregroundColor(.white.opacity(0.9))
@@ -104,6 +134,7 @@ struct TimerView: View {
                                 }
                                 .accessibilityIdentifier("PauseButton")
                             }
+                            
                             Spacer()
                         }
                         
@@ -129,8 +160,7 @@ struct TimerView: View {
                         
                         // Big Timer
                         Text(formatTime(timerModel.timeRemaining))
-                            .font(.system(size: geometry.size.width * 0.35, weight: .bold, design: .monospaced)) // Width-based in portrait is safer? Or keep existing logic
-                            .font(.system(size: geometry.size.height * 0.4, weight: .bold, design: .monospaced)) // Fallback to height ratio similar to before but tuned
+                            .font(.system(size: geometry.size.height * 0.35, weight: .bold, design: .monospaced))
                             .foregroundColor(.white)
                             .minimumScaleFactor(0.1)
                             .lineLimit(1)
@@ -142,6 +172,27 @@ struct TimerView: View {
                             .progressViewStyle(LinearProgressViewStyle(tint: .white))
                             .scaleEffect(x: 1, y: 4, anchor: .center)
                             .padding()
+                        
+                        // Heart Rate Display
+                        if timerModel.heartRateManager.heartRate > 0 {
+                            VStack(spacing: 0) {
+                                Image(systemName: "heart.fill")
+                                    .font(.system(size: 40))
+                                    .foregroundColor(.red)
+                                    .symbolEffect(.bounce, value: timerModel.heartRateManager.heartRate)
+                                
+                                Text("\(timerModel.heartRateManager.heartRate)")
+                                    .font(.system(size: geometry.size.height * 0.35, weight: .bold, design: .rounded))
+                                    .foregroundColor(.white)
+                                    .lineLimit(1)
+                                    .minimumScaleFactor(0.1)
+                                
+                                Text("BPM")
+                                    .font(.system(size: 24, weight: .bold, design: .rounded))
+                                    .foregroundColor(.white.opacity(0.8))
+                            }
+                            .padding(.top, -20)
+                        }
                         
                         Spacer()
                         
