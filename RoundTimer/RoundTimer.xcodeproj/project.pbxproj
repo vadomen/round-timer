@@ -6,11 +6,40 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		250E51092EFE67C200BD1378 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 256795102EFD564E00E7DCB0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 256795172EFD564E00E7DCB0;
+			remoteInfo = RoundTimer;
+		};
+		250E51252EFE6BC600BD1378 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 256795102EFD564E00E7DCB0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 256795172EFD564E00E7DCB0;
+			remoteInfo = RoundTimer;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		250E51052EFE67C200BD1378 /* RoundTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoundTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		250E511F2EFE6BC600BD1378 /* RoundTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoundTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		256795182EFD564E00E7DCB0 /* RoundTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoundTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		250E51062EFE67C200BD1378 /* RoundTimerTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = RoundTimerTests;
+			sourceTree = "<group>";
+		};
+		250E51202EFE6BC600BD1378 /* RoundTimerUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = RoundTimerUITests;
+			sourceTree = "<group>";
+		};
 		2567951A2EFD564E00E7DCB0 /* RoundTimer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = RoundTimer;
@@ -19,6 +48,20 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		250E51022EFE67C200BD1378 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		250E511C2EFE6BC600BD1378 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		256795152EFD564E00E7DCB0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -33,6 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				2567951A2EFD564E00E7DCB0 /* RoundTimer */,
+				250E51062EFE67C200BD1378 /* RoundTimerTests */,
+				250E51202EFE6BC600BD1378 /* RoundTimerUITests */,
 				256795192EFD564E00E7DCB0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				256795182EFD564E00E7DCB0 /* RoundTimer.app */,
+				250E51052EFE67C200BD1378 /* RoundTimerTests.xctest */,
+				250E511F2EFE6BC600BD1378 /* RoundTimerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,6 +95,52 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		250E51042EFE67C200BD1378 /* RoundTimerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 250E510D2EFE67C200BD1378 /* Build configuration list for PBXNativeTarget "RoundTimerTests" */;
+			buildPhases = (
+				250E51012EFE67C200BD1378 /* Sources */,
+				250E51022EFE67C200BD1378 /* Frameworks */,
+				250E51032EFE67C200BD1378 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				250E510A2EFE67C200BD1378 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				250E51062EFE67C200BD1378 /* RoundTimerTests */,
+			);
+			name = RoundTimerTests;
+			packageProductDependencies = (
+			);
+			productName = RoundTimerTests;
+			productReference = 250E51052EFE67C200BD1378 /* RoundTimerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		250E511E2EFE6BC600BD1378 /* RoundTimerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 250E51272EFE6BC600BD1378 /* Build configuration list for PBXNativeTarget "RoundTimerUITests" */;
+			buildPhases = (
+				250E511B2EFE6BC600BD1378 /* Sources */,
+				250E511C2EFE6BC600BD1378 /* Frameworks */,
+				250E511D2EFE6BC600BD1378 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				250E51262EFE6BC600BD1378 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				250E51202EFE6BC600BD1378 /* RoundTimerUITests */,
+			);
+			name = RoundTimerUITests;
+			packageProductDependencies = (
+			);
+			productName = RoundTimerUITests;
+			productReference = 250E511F2EFE6BC600BD1378 /* RoundTimerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		256795172EFD564E00E7DCB0 /* RoundTimer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 256795282EFD564F00E7DCB0 /* Build configuration list for PBXNativeTarget "RoundTimer" */;
@@ -80,6 +173,14 @@
 				LastSwiftUpdateCheck = 2620;
 				LastUpgradeCheck = 2620;
 				TargetAttributes = {
+					250E51042EFE67C200BD1378 = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = 256795172EFD564E00E7DCB0;
+					};
+					250E511E2EFE6BC600BD1378 = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = 256795172EFD564E00E7DCB0;
+					};
 					256795172EFD564E00E7DCB0 = {
 						CreatedOnToolsVersion = 26.2;
 					};
@@ -100,11 +201,27 @@
 			projectRoot = "";
 			targets = (
 				256795172EFD564E00E7DCB0 /* RoundTimer */,
+				250E51042EFE67C200BD1378 /* RoundTimerTests */,
+				250E511E2EFE6BC600BD1378 /* RoundTimerUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		250E51032EFE67C200BD1378 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		250E511D2EFE6BC600BD1378 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		256795162EFD564E00E7DCB0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +232,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		250E51012EFE67C200BD1378 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		250E511B2EFE6BC600BD1378 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		256795142EFD564E00E7DCB0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,7 +255,102 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		250E510A2EFE67C200BD1378 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 256795172EFD564E00E7DCB0 /* RoundTimer */;
+			targetProxy = 250E51092EFE67C200BD1378 /* PBXContainerItemProxy */;
+		};
+		250E51262EFE6BC600BD1378 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 256795172EFD564E00E7DCB0 /* RoundTimer */;
+			targetProxy = 250E51252EFE6BC600BD1378 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		250E510B2EFE67C200BD1378 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2YMR8TQ2PX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vadym.pospielov.RoundTimerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RoundTimer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RoundTimer";
+			};
+			name = Debug;
+		};
+		250E510C2EFE67C200BD1378 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2YMR8TQ2PX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vadym.pospielov.RoundTimerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RoundTimer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RoundTimer";
+			};
+			name = Release;
+		};
+		250E51282EFE6BC600BD1378 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2YMR8TQ2PX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vadym.pospielov.RoundTimerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RoundTimer;
+			};
+			name = Debug;
+		};
+		250E51292EFE6BC600BD1378 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2YMR8TQ2PX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vadym.pospielov.RoundTimerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RoundTimer;
+			};
+			name = Release;
+		};
 		256795262EFD564F00E7DCB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -319,6 +545,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		250E510D2EFE67C200BD1378 /* Build configuration list for PBXNativeTarget "RoundTimerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				250E510B2EFE67C200BD1378 /* Debug */,
+				250E510C2EFE67C200BD1378 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		250E51272EFE6BC600BD1378 /* Build configuration list for PBXNativeTarget "RoundTimerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				250E51282EFE6BC600BD1378 /* Debug */,
+				250E51292EFE6BC600BD1378 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		256795132EFD564E00E7DCB0 /* Build configuration list for PBXProject "RoundTimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

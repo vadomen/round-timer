@@ -51,6 +51,7 @@ struct TimerView: View {
                             .minimumScaleFactor(0.1)
                             .lineLimit(1)
                             .padding()
+                            .accessibilityIdentifier("TimerText")
                             .onTapGesture {
                                 if timerModel.isPaused {
                                     timerModel.resume()
@@ -75,6 +76,7 @@ struct TimerView: View {
                                         .foregroundColor(.white.opacity(0.8))
                                         .padding()
                                 }
+                                .accessibilityIdentifier("StopButton")
                                 
                                 Spacer()
                                 
@@ -100,6 +102,7 @@ struct TimerView: View {
                                         .foregroundColor(.white.opacity(0.8))
                                         .padding()
                                 }
+                                .accessibilityIdentifier("PauseButton")
                             }
                             Spacer()
                         }
@@ -132,6 +135,7 @@ struct TimerView: View {
                             .minimumScaleFactor(0.1)
                             .lineLimit(1)
                             .padding(.horizontal)
+                            .accessibilityIdentifier("TimerText")
                         
                         // Progress Bar
                         ProgressView(value: timerModel.progress)
@@ -154,6 +158,7 @@ struct TimerView: View {
                                     .frame(width: 80, height: 80)
                                     .foregroundColor(.white)
                             }
+                            .accessibilityIdentifier("StopButton")
                             
                             Button(action: {
                                 if timerModel.isPaused {
@@ -167,6 +172,7 @@ struct TimerView: View {
                                     .frame(width: 80, height: 80)
                                     .foregroundColor(.white)
                             }
+                            .accessibilityIdentifier("PauseButton")
                         }
                         .padding(.bottom, 50)
                     }
