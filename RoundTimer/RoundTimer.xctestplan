@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "C87522FD-66F9-4020-9FCA-ACCDAF7C0510",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:RoundTimer.xcodeproj",
+      "identifier" : "256795172EFD564E00E7DCB0",
+      "name" : "RoundTimer"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:RoundTimer.xcodeproj",
+        "identifier" : "250E51042EFE67C200BD1378",
+        "name" : "RoundTimerTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:RoundTimer.xcodeproj",
+        "identifier" : "250E511E2EFE6BC600BD1378",
+        "name" : "RoundTimerUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

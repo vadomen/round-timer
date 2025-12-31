@@ -24,6 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		250507C42F04FEBC00164A8F /* RoundTimer.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = RoundTimer.xctestplan; sourceTree = "<group>"; };
 		250E51052EFE67C200BD1378 /* RoundTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoundTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		250E511F2EFE6BC600BD1378 /* RoundTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoundTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		256795182EFD564E00E7DCB0 /* RoundTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoundTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +76,7 @@
 		2567950F2EFD564E00E7DCB0 = {
 			isa = PBXGroup;
 			children = (
+				250507C42F04FEBC00164A8F /* RoundTimer.xctestplan */,
 				2567951A2EFD564E00E7DCB0 /* RoundTimer */,
 				250E51062EFE67C200BD1378 /* RoundTimerTests */,
 				250E51202EFE6BC600BD1378 /* RoundTimerUITests */,
